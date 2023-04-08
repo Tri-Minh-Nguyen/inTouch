@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecoverLogin">
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="280dp"
+        android:hint="Email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_marginBottom="500dp" />
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_email"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:hint="Login"
+        app:layout_constraintEnd_toEndOf="@+id/edt_password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_password"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+
+    <Button
+        android:id="@+id/bt_forgotpassword"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:hint="Forgot Login"
+        app:layout_constraintStart_toStartOf="@+id/bt_login"
+        tools:layout_editor_absoluteY="462dp" />
+
+    <Button
+        android:id="@+id/bt_signup"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:hint="Signup"
+        app:layout_constraintEnd_toEndOf="@+id/bt_login"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/bt_forgotpassword"
+        tools:layout_editor_absoluteY="462dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
