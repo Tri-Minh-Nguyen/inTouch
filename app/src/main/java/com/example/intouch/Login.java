@@ -1,5 +1,6 @@
 package com.example.intouch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Login extends AppCompatActivity {
 
     private EditText edtEmail;
@@ -18,17 +27,17 @@ public class Login extends AppCompatActivity {
     private Button btSingUp;
     private Button btRecover;
     private TextView tvPassword;
-    private DatabaseSingleton dbHelperSingleton;
-    private DatabaseHelper dbHelper;
-
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        dbHelperSingleton = DatabaseSingleton.getInstance(this);
-        dbHelper = dbHelperSingleton.getDatabaseHelper();
+        //dbHelperSingleton = DatabaseSingleton.getInstance(this);
+        //dbHelper = dbHelperSingleton.getDatabaseHelper();
+
+        mAuth = FirebaseAuth.getInstance();
 
         edtEmail = findViewById(R.id.edt_email);
         edtPassword = findViewById(R.id.edt_password);
@@ -40,22 +49,28 @@ public class Login extends AppCompatActivity {
         btLogin.setOnClickListener(view -> {
             String email = edtEmail.getText().toString();
             String password = edtPassword.getText().toString();
-            Boolean proceed = dbHelper.loginUser(email, password);
-            if (proceed) {
-                Intent intent = new Intent(this, Contacts.class);
-                startActivity(intent);
-            }
-            else {
-                tvPassword.setVisibility(View.VISIBLE);
-            }
-
+            login(email, password);
         });
 
         btSingUp.setOnClickListener(view -> {
             Intent intent = new Intent(this, SignUp.class);
             startActivity(intent);
         });
+    }
 
+    private void login(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Intent intent = new Intent(Login.this, Contacts.class);
+                            startActivity(intent);
+                        } else {
+                            tvPassword.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
     }
 }
 

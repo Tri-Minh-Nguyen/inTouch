@@ -7,25 +7,35 @@
     tools:context=".SignUp">
 
     <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:hint="Name"
+        app:layout_constraintEnd_toEndOf="@+id/tv_unmatched_password"
+        app:layout_constraintStart_toStartOf="@+id/tv_unmatched_password"
+        app:layout_constraintTop_toBottomOf="@+id/tv_unmatched_password" />
+
+    <EditText
         android:id="@+id/edt_email"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="10dp"
         android:hint="Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edt_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_name"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name"
         tools:layout_marginBottom="500dp" />
 
     <EditText
         android:id="@+id/edt_password1"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Password"
         app:layout_constraintEnd_toEndOf="@+id/edt_email"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/edt_email"
         app:layout_constraintTop_toBottomOf="@+id/edt_email" />
 
@@ -33,7 +43,7 @@
         android:id="@+id/edt_password2"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Confirm Password"
         app:layout_constraintEnd_toEndOf="@+id/edt_password1"
         app:layout_constraintHorizontal_bias="0.0"
@@ -44,7 +54,7 @@
         android:id="@+id/bt_signup"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:hint="Signup"
         app:layout_constraintEnd_toEndOf="@+id/edt_password2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,13 +65,32 @@
         android:id="@+id/tv_unmatched_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:text="Passwords do not match"
         android:textSize="18sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/edt_email"
-        app:layout_constraintEnd_toEndOf="@+id/edt_email"
-        app:layout_constraintStart_toStartOf="@+id/edt_email"
+
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.289"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_failed_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up Failed"
+        android:textSize="18sp"
+
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.289"
         tools:visibility="invisible" />
 
 
