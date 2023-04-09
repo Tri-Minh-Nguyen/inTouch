@@ -41,18 +41,28 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_password1" />
 
     <Button
-        android:id="@+id/bt_login"
+        android:id="@+id/bt_signup"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:hint="Signup"
-        app:layout_constraintEnd_toEndOf="@+id/edt_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_password2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edt_password2"
         app:layout_constraintTop_toBottomOf="@+id/edt_password2" />
 
-
-
+    <TextView
+        android:id="@+id/tv_unmatched_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Passwords do not match"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/edt_email"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email"
+        app:layout_constraintStart_toStartOf="@+id/edt_email"
+        tools:visibility="invisible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,8 +37,6 @@ public class Login extends AppCompatActivity {
         btRecover = findViewById(R.id.bt_forgotpassword);
         tvPassword = findViewById(R.id.tv_incorrect_login);
 
-        dbHelper.addUser("test@test.com","1234");
-
         btLogin.setOnClickListener(view -> {
             String email = edtEmail.getText().toString();
             String password = edtPassword.getText().toString();
